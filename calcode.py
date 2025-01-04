@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import sqlite3
 from datetime import datetime
+import os
 
 # 데이터베이스 연결 및 테이블 생성
 conn = sqlite3.connect('sales.db')
@@ -172,6 +173,6 @@ async def 월별매출(ctx, year: int, month: int):
 async def on_ready():
     print(f'{bot.user.name}이(가) 준비되었습니다.')
     
-
-bot.run(TOKEN)
+access_token = os.environ["BOT_TOKEN"]
+bot.run(access_token)
 
